@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+ <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css" integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+</head>
+<body>
+<h1>This site checks if your inputs are palindrome or not</h1>
+
+
+<form action="/checkPalindrome">
+<div class="form-group" action="/checkPalindrome">
+    <lable>Enter words with a comma separator</lable>
+    <textarea name="words" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <button class="btn btn-primary" type="submit">Check palindrome</button>
+</div>
+</form>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Word</th>
+        <th scope="col">Palindrome</th>
+        <th scope="col">Yes/No</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="palindrome :${palindromes}">
+        <td th:text="${palindrome}"></td>
+        <td th:text="${palindrome}"></td>
+        <td th:text="${palindrome} ? 'Yes': 'No'"></td>
+    </tr>
+    <tr th:each="nonPalindrome :${nonPalindromes}">
+        <td th:text="${nonPalindrome}"></td>
+        <td></td>
+        <td th:text="${nonPalindrome} ? 'No': 'Yes'"></td>
+    </tr>
+
+
+    </tbody>
+</table>
+</body>
+</html>
